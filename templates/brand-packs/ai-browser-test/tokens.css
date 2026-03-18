@@ -1,0 +1,83 @@
+/*
+ * Design tokens — ai-browser-test brand pack
+ *
+ * Source: https://github.com/mgifford/ai-browser-test
+ *
+ * All tokens are defined on :root. A single @media (prefers-color-scheme: dark)
+ * block overrides the tokens that change between modes. Do not create separate
+ * dark-mode class names or duplicate token declarations elsewhere.
+ *
+ * Usage notes:
+ * - Use --ink (not --text) for primary text in this pack.
+ * - --accent is the primary CTA / highlight color (coral).
+ * - --accent-2 is positive/secondary states (teal).
+ * - --accent-3 is informational links (blue).
+ * - Browser brand tokens (--chrome, --firefox, --edge) are identity colors.
+ *   Do not change them. Remove them if the project has no browser-specific UI.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* ── Surface ── */
+  --bg:       #f2efe7;   /* Warm parchment — page and outer background */
+  --ink:      #18211f;   /* Deep forest — primary text */
+  --muted:    #50615c;   /* Mid-tone — secondary text, captions, metadata */
+  --card:     rgba(255, 255, 255, 0.72); /* Panel background */
+  --line:     rgba(22, 32, 30, 0.14);   /* Borders and dividers */
+
+  /* ── Accent palette ── */
+  --accent:   #ec5f3f;   /* Coral — primary CTA and highlights */
+  --accent-2: #2b7f6d;   /* Teal — secondary accent, positive states */
+  --accent-3: #0f5cda;   /* Blue — tertiary accent, informational links */
+
+  /* ── Browser brand (identity colors — do not change) ── */
+  --chrome:   #4285f4;
+  --firefox:  #ff7139;
+  --edge:     #0aa7ad;
+
+  /* ── Elevation ── */
+  --shadow:   0 20px 40px rgba(17, 31, 28, 0.1);
+
+  /* ── Border radius ── */
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  /* ── Typography ── */
+  --font-body:    "Space Grotesk", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --line-height-body:    1.45;
+  --line-height-display: 1.05;
+  --prose-width:  65ch;
+
+  /* ── Layout ── */
+  --shell-width: min(1120px, calc(100% - 2rem));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:    #1a2320;
+    --ink:   #ede9e0;
+    --muted: #93aaa4;
+    --card:  rgba(30, 42, 38, 0.85);
+    --line:  rgba(237, 233, 224, 0.12);
+
+    --accent:   #f07a5e;
+    --accent-2: #4db39e;
+    --accent-3: #5590f0;
+
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+    /* Browser brand tokens do not change in dark mode */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
+  }
+}

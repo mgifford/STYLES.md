@@ -7,6 +7,7 @@ Each profile includes portable token, component, voice, and AI enforcement files
 
 - `civic-clarity/`: public-interest and service-delivery style with high readability defaults
 - `developer-lab/`: technical product style optimized for developer workflows and dense information
+- `ai-browser-test/`: warm parchment / deep forest palette, expressive serif + geometric sans typography, browser brand tokens, developer-audience voice — derived from [mgifford/ai-browser-test](https://github.com/mgifford/ai-browser-test)
 
 ## How to use
 
