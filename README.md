@@ -1,28 +1,62 @@
-# STYLE.md: Human & AI Design Standards
+# STYLES.md
 
-A framework for creating consistent, accessible, and sustainable design standards that are equally readable by humans and AI Agents.
+A machine-readable style standard for human and AI collaboration.
 
-## Why STYLE.md?
-In an era of AI-augmented development, a style guide can no longer just be a PDF or a Figma board. It must be a **machine-readable logic gate**. This project provides a standardized format for defining "how we work" so that:
-- **Humans** have a clear, plain-language reference.
-- **AI Agents** (via [[AGENTS.md]]) have a set of constraints to follow when generating code or content.
+Your style guide should be a file, not a PDF. Put it at your repo root where
+every developer, reviewer, and AI coding agent can find it.
 
-## The Three Pillars
-This project is part of a larger ecosystem of standards:
-1.  [[ACCESSIBILITY.md]]: The foundational requirement. Style is a subset of accessibility.
-2.  [[SUSTAINABILITY.md]]: The environmental constraint. Good style is lightweight and efficient.
-3.  [[AGENTS.md]]: The operational layer. How AI interacts with these standards.
+## What is STYLES.md?
 
-## Project Structure
-This repository contains a variety of "flavors" to demonstrate how the same structural logic can be applied to different organizational needs:
+STYLES.md is an open format for writing down how your project communicates —
+voice, tone, design tokens, and AI agent constraints — in a single Markdown file
+that both humans and machines can read, follow, and automate against.
 
-- **/templates**: Scaffolds to help you start your own STYLE.md.
-- **/examples/formal-gov**: Designed for public trust and high-compliance environments.
-- **/examples/tech-minimal**: Focused on speed, precision, and documentation.
-- **/examples/low-bandwidth**: A sustainability-first approach for low-energy environments.
+It is part of a three-pillar ecosystem:
 
-## How to Use This
-1.  **Fork** this repository.
-2.  **Select a flavor** from the `/examples` folder that matches your project's intent.
-3.  **Rename** it to `STYLE.md` and place it in your project's root directory.
-4.  **Reference** it in your LLM prompts or `AGENTS.md` file to ensure AI-generated output stays "on-brand."
+| Standard | Purpose |
+| :--- | :--- |
+| [ACCESSIBILITY.md](https://github.com/mgifford/ACCESSIBILITY.md) | Foundational inclusion requirements and contributor guardrails |
+| [SUSTAINABILITY.md](https://github.com/mgifford/sustainability.md) | Environmental and compute-efficiency constraints |
+| [STYLES.md](https://github.com/mgifford/STYLE.md) | Voice, design tokens, and AI agent style rules |
+
+## Why does this exist?
+
+In an era of AI-assisted development, a style guide that lives as a PDF or a
+Figma board is invisible to the tools doing the work. STYLES.md makes your
+standards explicit, version-controlled, and testable.
+
+- **Humans** get a clear, plain-language reference at the repo root.
+- **AI agents** get a machine-readable constraint file they can follow without guessing.
+- **Reviewers** get a checklist they can verify in CI.
+
+## How to replicate this
+
+1. **Fork** this repository or copy [STYLES-template.md](./STYLES-template.md) into your project root.
+2. **Choose an example** from the [examples](./examples/) folder close to your context.
+3. **Customize** — replace every `[PLACEHOLDER]` with your project's real values.
+4. **Connect the pillars** — add [ACCESSIBILITY.md](https://github.com/mgifford/ACCESSIBILITY.md) and [SUSTAINABILITY.md](https://github.com/mgifford/sustainability.md) for a full governance baseline.
+5. **Wire it up** — reference `STYLES.md` in your `AGENTS.md` and LLM system prompts.
+
+## Repository contents
+
+| File / folder | Purpose |
+| :--- | :--- |
+| [STYLES.md](./STYLES.md) | This project's own style implementation (two-surface: site + docs) |
+| [STYLES-template.md](./STYLES-template.md) | Minimal skeleton to copy and customize |
+| [examples/](./examples/) | Worked examples: formal-gov, tech-minimal, low-bandwidth |
+| [templates/](./templates/) | Blank scaffolds for starting from scratch |
+| [AGENTS.md](./AGENTS.md) | Operational instructions for AI coding agents |
+| [ACCESSIBILITY.md](./ACCESSIBILITY.md) | Foundational accessibility commitment |
+| [SUSTAINABILITY.md](./SUSTAINABILITY.md) | Environmental and efficiency constraints |
+
+## GitHub Pages
+
+This project publishes a browsable site at
+[mgifford.github.io/STYLE.md](https://mgifford.github.io/STYLE.md) built with
+Jekyll from `index.md`, `_layouts/`, and `assets/`.
+
+## Related projects
+
+- [ACCESSIBILITY.md](https://github.com/mgifford/ACCESSIBILITY.md)
+- [sustainability.md](https://github.com/mgifford/sustainability.md)
+- [agents.md](https://agents.md)

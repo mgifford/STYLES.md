@@ -1,0 +1,38 @@
+title: STYLES.md
+description: A machine-readable style standard for human and AI collaboration.
+baseurl: "/STYLE.md"
+url: "https://mgifford.github.io"
+github_url: "https://github.com/mgifford/STYLE.md"
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins: []
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: "examples"
+    values:
+      layout: prose
+  - scope:
+      path: "templates"
+    values:
+      layout: prose
+
+# Social sharing image (absolute path from baseurl root)
+# Must be a PNG or JPEG, 1200×630 px recommended for LinkedIn/Bluesky/Mastodon
+social_image: "/assets/images/social-preview.png"
+
+# Optional: Mastodon author attribution (fediverse:creator, Mastodon 4.3+)
+# mastodon_creator: ""
+
+# Optional: Full Mastodon profile URL — used for rel="me" verification in footer
+# mastodon_url: ""
+
+# Optional: Bluesky handle for attribution
+# bluesky_creator: ""
+
+# Optional: Full Bluesky profile URL — linked in the footer
+# bluesky_url: ""

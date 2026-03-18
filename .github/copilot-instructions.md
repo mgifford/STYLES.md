@@ -1,8 +1,9 @@
-# Copilot Instructions for STYLE.md
+# Copilot Instructions for STYLES.md
 
 ## Read This First
 - Always read [AGENTS.md](../AGENTS.md) before making changes.
-- This repository currently does not contain `ACCESSIBILITY.md` or `SUSTAINABILITY.md`. If those files are added later, treat them as authoritative alongside [AGENTS.md](../AGENTS.md).
+- Always read [ACCESSIBILITY.md](../ACCESSIBILITY.md) before making standards changes.
+- Always read [SUSTAINABILITY.md](../SUSTAINABILITY.md) before making standards changes.
 
 ## Repository Summary
 - Purpose: Define and publish a machine-readable style standard for humans and AI agents.
@@ -13,13 +14,17 @@
 ## High-Level Layout
 Root files currently present:
 - [README.md](../README.md)
-- [STYLE.md](../STYLE.md)
+- [STYLES.md](../STYLES.md)
 - [AGENTS.md](../AGENTS.md)
+- [ACCESSIBILITY.md](../ACCESSIBILITY.md)
+- [SUSTAINABILITY.md](../SUSTAINABILITY.md)
 
 Key content:
 - [README.md](../README.md): Project overview, three-pillar model, usage steps.
-- [STYLE.md](../STYLE.md): Canonical standards text for reuse.
+- [STYLES.md](../STYLES.md): Canonical standards text for reuse.
 - [AGENTS.md](../AGENTS.md): Operational instructions for coding agents.
+- [ACCESSIBILITY.md](../ACCESSIBILITY.md): Foundational accessibility commitments and guardrails.
+- [SUSTAINABILITY.md](../SUSTAINABILITY.md): Environmental and efficiency constraints.
 
 There is currently no CI/pipeline config checked in:
 - No `.github/workflows` directory
@@ -57,7 +62,7 @@ Tooling caveat observed in this environment:
 
 ## Recommended Execution Order
 For any change, follow this sequence:
-1. Read [AGENTS.md](../AGENTS.md), then [README.md](../README.md), then [STYLE.md](../STYLE.md).
+1. Read [AGENTS.md](../AGENTS.md), then [ACCESSIBILITY.md](../ACCESSIBILITY.md), then [SUSTAINABILITY.md](../SUSTAINABILITY.md), then [README.md](../README.md), then [STYLES.md](../STYLES.md).
 2. Inspect current state: `git status --short`.
 3. Make minimal Markdown edits scoped to the user request.
 4. Validate references and formatting by re-reading modified files.
@@ -79,7 +84,7 @@ Before finishing a task:
 - Confirm changed files are expected: `git status --short`.
 - Confirm diff size and scope: `git diff --stat` and `git diff`.
 - Confirm no accidental artifacts (especially `package-lock.json`).
-- Confirm instructions in [README.md](../README.md), [STYLE.md](../STYLE.md), and [AGENTS.md](../AGENTS.md) remain consistent.
+- Confirm instructions in [README.md](../README.md), [STYLES.md](../STYLES.md), [AGENTS.md](../AGENTS.md), [ACCESSIBILITY.md](../ACCESSIBILITY.md), and [SUSTAINABILITY.md](../SUSTAINABILITY.md) remain consistent.
 
 ## Architecture and Editing Guidance
 - Treat this as a standards/spec repository, not an application codebase.

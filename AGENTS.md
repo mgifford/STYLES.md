@@ -12,7 +12,9 @@ Primary goals:
 
 Core docs in this repo:
 - `README.md`: project introduction and usage guidance.
-- `STYLE.md`: canonical style framework content.
+- `STYLES.md`: canonical style framework content.
+- `ACCESSIBILITY.md`: foundational accessibility commitments and guardrails.
+- `SUSTAINABILITY.md`: environmental and efficiency constraints.
 
 ## Working principles
 - Prefer small, focused edits over broad rewrites.
@@ -49,7 +51,7 @@ When editing standards content:
 Before finishing changes, verify:
 - Markdown renders cleanly (headings, lists, links).
 - Cross-references to files are correct.
-- No contradictions between `README.md`, `STYLE.md`, and `AGENTS.md`.
+- No contradictions between `README.md`, `STYLES.md`, `AGENTS.md`, `ACCESSIBILITY.md`, and `SUSTAINABILITY.md`.
 - Edits stay scoped to the user request.
 
 ## Pull request guidance
