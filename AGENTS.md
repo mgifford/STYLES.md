@@ -70,6 +70,15 @@ Applies to: `index.md`, `_layouts/*`, `assets/*`, and any page with front matter
 - If no profile is selected, follow `templates/brand-pack/` as the fallback baseline.
 - When adding a new reusable component, update the active brand pack documentation in the same change.
 
+## AI disclosure requirement
+When contributing changes as an AI agent, you must update the `## AI disclosure` section in `README.md`:
+- Add your AI tool name and version (if known) if it is not already listed.
+- Describe how you were used in this contribution (e.g., "used to draft documentation", "used to generate code").
+- Do not list AI tools that were not involved in the work.
+- Do not claim uses that did not occur.
+
+If the section does not exist, create it following the format already established in `README.md`.
+
 ## Content requirements
 When editing standards content:
 - Maintain compatibility with the three-pillar model:

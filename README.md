@@ -75,6 +75,20 @@ For downstream adoption from another repository, copy that project's dedicated
 `brand-pack/` first, then adapt values intentionally. This preserves the original
 style fingerprint better than regenerating from prose alone.
 
+## AI disclosure
+
+This section lists every AI tool known to have contributed to this project, what it was used for, and where it operates. AI tools that were not used are not listed.
+
+| AI tool | Role | Where it operates |
+| :--- | :--- | :--- |
+| GitHub Copilot (Claude Sonnet) | Used to draft and refine documentation, including this disclosure section and related `AGENTS.md` instructions | Build-time / authoring only — not present at runtime or in the browser |
+
+**Runtime AI:** No AI model runs at runtime. This project is a static documentation site served by GitHub Pages. No server-side or client-side AI inference occurs when the site is loaded.
+
+**Browser-based AI:** No browser-based AI is enabled. The site contains no JavaScript that invokes an AI API, no on-device model, and no AI-powered browser extension is required or assumed.
+
+**How to keep this current:** When an AI tool contributes a change, the contributor (human or AI agent) must update this table. See `AGENTS.md` for the AI disclosure requirement that governs this section.
+
 ## Related projects
 
 - [ACCESSIBILITY.md](https://github.com/mgifford/ACCESSIBILITY.md)
