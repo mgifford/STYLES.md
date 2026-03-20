@@ -161,6 +161,8 @@ Rules that apply to all document types:
 
 These rules apply to `index.md`, `_layouts/`, `assets/`, and any page with Jekyll
 front matter. They do not govern plain Markdown documentation files.
+Presentation quality rules in this section are informed by the
+[Opquast Digital Quality Checklist](https://checklists.opquast.com/en/digital-quality/).
 
 ### 3.0 Brand profile and pack selection
 
@@ -204,6 +206,8 @@ No extra class is required.
 - **Fluid type:** Use `clamp()` for headings: e.g. `clamp(2.1rem, 5vw, 3.8rem)`.
 - **Line length:** 45–75 characters per line (`max-width: 760px` for `.prose` blocks).
 - **Line height:** Minimum `1.6` for body text.
+- **Text alignment:** Use left-aligned text for body content. Avoid `text-align: justify` — it creates uneven word spacing that reduces readability.
+- **Capitalization:** Use CSS `text-transform` for decorative uppercase styling. Do not write uppercase text directly in HTML source.
 
 ### 3.3 Responsive design (mobile-first)
 
@@ -215,6 +219,8 @@ Write base CSS for the smallest screen first, then enhance with `min-width` quer
 | **Tablet** | `min-width: 600px` | Two-column layouts where content benefits |
 | **Desktop** | `min-width: 900px` | Multi-column grids, wider prose, side panels |
 
+- **Never block zoom.** The viewport meta tag must not include `maximum-scale=1` or `user-scalable=no`. Users must be able to scale the page freely.
+
 ### 3.4 User-preference media queries
 
 | Query | Status | Implementation |
@@ -223,6 +229,7 @@ Write base CSS for the smallest screen first, then enhance with `min-width` quer
 | `prefers-reduced-motion` | Required | Remove or reduce transitions and animations |
 | `prefers-contrast` | Planned | Not yet implemented |
 | `forced-colors` | Planned | Not yet implemented |
+| `print` | Recommended | Hide navigation and decorative elements; render body text at ≥ 12pt; append `href` values on links |
 
 ---
 
@@ -235,6 +242,11 @@ These rules apply to **both surfaces**.
 - Every image needs meaningful alt text. Decorative images use `alt=""`.
 - Use `aria-label` on landmark elements when the role is ambiguous.
 - Minimum color contrast: 4.5:1 for body text, 3:1 for large text and UI components.
+- Do not convey information by color alone. Always pair color with a secondary indicator: an icon, label, pattern, or text.
+- Ensure touch and click targets are at least 44×44 pixels for primary interactive elements.
+- Use underlines only for links, not for decorative or non-link text.
+- Differentiate visited and unvisited link states visually.
+- Provide a "skip to main content" skip link at the start of each page so keyboard users can bypass repeated navigation.
 - See [ACCESSIBILITY.md](./ACCESSIBILITY.md) for the full commitment and severity taxonomy.
 
 ---
@@ -280,6 +292,7 @@ These rules describe how this style guide itself is maintained and updated.
 - [Plain Language Guidelines — Digital.gov](https://www.plainlanguage.gov/guidelines/)
 - [GOV.UK Content Design Guide](https://www.gov.uk/guidance/content-design/writing-for-gov-uk)
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
+- [Opquast Digital Quality Checklist](https://checklists.opquast.com/en/digital-quality/)
 - [CivicActions Style Guide](https://civicactions-style-guide.readthedocs.io/en/latest/)
 - [Brad Frost: Style Guides](https://bradfrost.com/blog/post/style-guides/)
 - [Nielsen Norman Group: Design Systems vs. Style Guides](https://www.nngroup.com/articles/design-systems-vs-style-guides/)
