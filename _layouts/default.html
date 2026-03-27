@@ -46,9 +46,33 @@
     <meta name="twitter:image:alt" content="{{ page_title }} — {{ site.description }}" />
 
     <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
+    <!-- Anti-flash: apply saved theme before first paint -->
+    <script>
+      (function () {
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+      })();
+    </script>
   </head>
   <body>
     <div class="page-shell">
+      <header class="site-header">
+        <div class="wrap site-header-inner">
+          <!-- Theme toggle: placed last in header for proper keyboard tab order -->
+          <!-- aria-label is updated by the inline script below before first interaction -->
+          <button id="theme-toggle" aria-label="Toggle theme" type="button">
+            <!-- Sun icon: shown in dark mode — clicking switches to light -->
+            <svg aria-hidden="true" focusable="false" class="theme-icon sun-icon" viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="12" cy="12" r="5" fill="currentColor"/>
+              <path fill="currentColor" d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+            </svg>
+            <!-- Moon icon: shown in light mode — clicking switches to dark -->
+            <svg aria-hidden="true" focusable="false" class="theme-icon moon-icon" viewBox="0 0 24 24" width="20" height="20">
+              <path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+          </button>
+        </div>
+      </header>
       <main>{{ content }}</main>
       <footer class="site-footer">
         <p>
@@ -70,5 +94,39 @@
         </p>
       </footer>
     </div>
+    <script>
+      (function () {
+        var toggle = document.getElementById('theme-toggle');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        var saved = localStorage.getItem('theme');
+        var current = saved || (prefersDark.matches ? 'dark' : 'light');
+        var hasOverride = !!saved;
+
+        function apply(theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+          toggle.setAttribute(
+            'aria-label',
+            theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+          );
+        }
+
+        toggle.addEventListener('click', function () {
+          var next = current === 'dark' ? 'light' : 'dark';
+          current = next;
+          hasOverride = true;
+          localStorage.setItem('theme', next);
+          apply(next);
+        });
+
+        prefersDark.addEventListener('change', function (e) {
+          if (!hasOverride) {
+            current = e.matches ? 'dark' : 'light';
+            apply(current);
+          }
+        });
+
+        apply(current);
+      })();
+    </script>
   </body>
 </html>
