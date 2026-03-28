@@ -518,7 +518,7 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 0.4rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--muted);
   border-radius: 4px;
   background: var(--bg);
   color: var(--text);
