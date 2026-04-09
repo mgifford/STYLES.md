@@ -1,0 +1,52 @@
+# STYLES.md
+
+> A machine-readable style standard for human and AI collaboration.
+
+STYLES.md is an open format for writing down how a project communicates —
+voice, tone, design tokens, and AI agent constraints — in a single Markdown
+file that both humans and language models can read, follow, and automate against.
+
+It is part of a three-pillar governance ecosystem: ACCESSIBILITY.md (inclusion
+requirements), SUSTAINABILITY.md (compute-efficiency constraints), and STYLES.md
+(voice, design tokens, and AI agent style rules).
+
+## Core standards
+
+- [STYLES.md](https://mgifford.github.io/STYLES.md/STYLES.md): Canonical style
+  implementation. Covers content standards (§ 2), design tokens and typography
+  (§ 3), accessibility and semantic logic (§ 4), AI agent instructions (§ 5),
+  content governance (§ 6), and references (§ 7).
+- [AGENTS.md](https://mgifford.github.io/STYLES.md/AGENTS.md): Operational
+  instructions for AI coding agents working in this repository.
+- [ACCESSIBILITY.md](https://mgifford.github.io/STYLES.md/ACCESSIBILITY.md):
+  Foundational accessibility commitments and contributor guardrails. Overrides
+  STYLES.md when they conflict.
+- [SUSTAINABILITY.md](https://mgifford.github.io/STYLES.md/SUSTAINABILITY.md):
+  Environmental and compute-efficiency constraints. Non-negotiable.
+
+## Templates and examples
+
+- [STYLES-template.md](https://mgifford.github.io/STYLES.md/STYLES-template.md):
+  Minimal skeleton to copy and customize for a new project.
+- [examples/](https://mgifford.github.io/STYLES.md/examples/): Worked examples
+  for formal-gov, tech-minimal, low-bandwidth, and navigation-menus contexts.
+- [templates/brand-pack/](https://mgifford.github.io/STYLES.md/templates/brand-pack/):
+  Copy-ready brand portability kit: CSS tokens, component contracts, voice rules,
+  and AI enforcement instructions.
+- [templates/brand-packs/](https://mgifford.github.io/STYLES.md/templates/brand-packs/):
+  Multi-brand starter profiles for projects that need more than one reusable
+  style system.
+
+## Key concepts for LLMs
+
+- **AI agent constraints live in AGENTS.md and STYLES.md § 5.** Reference both
+  when constructing a system prompt for an AI coding agent.
+- **Non-negotiable guardrails** are in ACCESSIBILITY.md and SUSTAINABILITY.md.
+  When a rule in STYLES.md conflicts with either, the guardrail wins.
+- **Design tokens** are documented in STYLES.md § 3.1 with light and dark values
+  and their accessibility requirements. Token names are semantic.
+- **Voice and tone rules** are in STYLES.md § 2. Plain language, active voice,
+  American English by default.
+- **LLM integration guidance** is in STYLES.md §§ 5–5.1. It covers how to include
+  this file in context windows, the llms.txt convention, semantic token naming,
+  component contracts, and decision rationale.
