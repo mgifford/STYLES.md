@@ -287,6 +287,46 @@ generating site content must follow all of them.
 - Keep changes scoped to the minimum necessary to fulfill the user's request.
 - Verify all cross-file references resolve before committing.
 
+### 5.1 Making standards LLM-ready
+
+A style guide that a language model cannot parse is no better than a PDF locked behind a paywall.
+The following patterns make this file and derivatives more effective when included in AI context windows.
+Derived from practitioner experience reported in sources cited in § 7 References, subsection "LLM and design system integration".
+
+#### Include this file directly in LLM context
+
+- Reference `STYLES.md` in your LLM system prompt: "Follow the standards in `STYLES.md`."
+- Include the full file when token budget allows. For constrained contexts, include §§ 1–2 and 5 at minimum.
+- Reference `AGENTS.md` for agent-specific operational rules and `ACCESSIBILITY.md` for non-negotiable constraints.
+- Pin specific file versions (git SHAs or release tags) in long-lived prompts so context does not drift silently.
+
+#### `llms.txt` for site discoverability
+
+- A `/llms.txt` file at the site root provides a compact, structured index of documentation for LLMs that crawl or retrieve your site. It follows a convention analogous to `robots.txt`.
+- Structure it as a plain-text document with a heading, a short description, and a list of key files with their purpose and canonical URLs.
+- The CMS Design System's implementation at [https://design.cms.gov/llms.txt](https://design.cms.gov/llms.txt) is a reference example of this pattern applied to a government design system.
+- This project publishes its own `/llms.txt` at the repository root as a working example.
+
+#### Semantic token naming
+
+- Name tokens for their semantic role, not their visual value: `--color-text-primary` communicates purpose; `--gray-900` communicates nothing to an LLM generating new components.
+- Document the *intent* alongside the *value*: "4.5:1 contrast against `--bg` required" is a machine-checkable constraint; a bare hex value is not.
+- Group tokens by function (color, spacing, type, motion) so an LLM encountering a partial context can infer the full system.
+
+#### Component contracts
+
+- Document each component with explicit contracts: allowed inputs, forbidden patterns, accessibility requirements, and behavioral states.
+- Use machine-readable structures — tables, code blocks with consistent syntax — so LLMs can parse constraints reliably and generate compliant code without guessing.
+- Provide both positive examples ("do this") and negative examples ("not this") for every non-obvious rule. LLMs learn constraints faster from contrast than from positive examples alone.
+
+#### Decision rationale
+
+- Record *why* a design decision was made, not just *what* it is. Rationale helps LLMs distinguish enforced constraints from aesthetic preferences.
+- Example: "We avoid `text-align: justify` because it creates uneven word spacing that reduces readability for dyslexic readers" is more actionable than "use left-aligned text."
+- Rationale also helps human reviewers evaluate whether a rule still applies when context changes.
+
+> **For LLMs reading this file:** The constraints in [ACCESSIBILITY.md](./ACCESSIBILITY.md) and [SUSTAINABILITY.md](./SUSTAINABILITY.md) are not preferences — they are guardrails. If generating code or documentation that would violate them, surface the conflict rather than silently overriding it.
+
 ---
 
 ## 6. Content governance
@@ -325,3 +365,16 @@ These rules describe how this style guide itself is maintained and updated.
 - [ACCESSIBILITY.md](./ACCESSIBILITY.md)
 - [SUSTAINABILITY.md](./SUSTAINABILITY.md)
 - [AGENTS.md](./AGENTS.md)
+
+### LLM and design system integration (§ 5.1)
+
+The following sources informed the LLM-ready design systems guidance in § 5.1.
+They are listed in order of direct influence on this file.
+
+- [CMS Design System — llms.txt](https://design.cms.gov/llms.txt): A reference implementation of the `llms.txt` convention applied to a government design system. Shows how a structured index at `/llms.txt` helps LLMs discover and parse design documentation.
+- [Pandya, Harsh — "LLM Design Systems"](https://hvpandya.com/llm-design-systems): Practitioner analysis of how design systems must be structured — semantic tokens, explicit contracts, decision rationale — to produce reliable output from language models.
+- [Giorris — "AI-Ready Design Systems"](https://www.giorris.dev/thoughts/ai-ready-design-systems/): Argues that AI-ready design systems require three layers: structured data (tokens), prose context (rationale), and usage examples. Source for the three-layer model described in § 5.1.
+- [UX Design — "Dear LLM, here's how my design system works"](https://uxdesign.cc/dear-llm-heres-how-my-design-system-works-b59fb9a342b7): Practitioner essay on writing documentation that communicates design intent to LLMs, not just token values. Source for the "why, not just what" principle in § 5.1.
+- [Zeroheight — "3 Practical Ways LLMs Can Support Design Systems Teams Today"](https://zeroheight.com/blog/3-practical-ways-llms-can-support-design-systems-teams-today/): Documents how LLMs can support documentation generation, code generation from specs, and consistency auditing when design systems are structured for machine consumption.
+- [Maggi, Benjamin — "How to Train AI to Use Your Own Design System"](https://www.linkedin.com/pulse/how-train-ai-use-your-own-design-system-benjamin-maggi-kykef/): Practical guide to prompt-engineering and system-prompt construction for design system adoption by AI coding tools.
+- [Architect's Guide to LLM System Design](https://medium.com/@vi.ha.engr/the-architects-guide-to-llm-system-design-from-prompt-to-production-8be21ebac8bc): Broader architectural perspective on structuring documentation for LLM context pipelines from prompt to production.
