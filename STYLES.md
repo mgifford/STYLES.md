@@ -304,7 +304,6 @@ Derived from practitioner experience reported in sources cited in § 7 Reference
 
 - A `/llms.txt` file at the site root provides a compact, structured index of documentation for LLMs that crawl or retrieve your site. It follows a convention analogous to `robots.txt`.
 - Structure it as a plain-text document with a heading, a short description, and a list of key files with their purpose and canonical URLs.
-- The CMS Design System's implementation at [https://design.cms.gov/llms.txt](https://design.cms.gov/llms.txt) is a reference example of this pattern applied to a government design system.
 - This project publishes its own `/llms.txt` at the repository root as a working example.
 
 #### Semantic token naming
@@ -371,7 +370,6 @@ These rules describe how this style guide itself is maintained and updated.
 The following sources informed the LLM-ready design systems guidance in § 5.1.
 They are listed in order of direct influence on this file.
 
-- [CMS Design System — llms.txt](https://design.cms.gov/llms.txt): A reference implementation of the `llms.txt` convention applied to a government design system. Shows how a structured index at `/llms.txt` helps LLMs discover and parse design documentation.
 - [Pandya, Harsh — "LLM Design Systems"](https://hvpandya.com/llm-design-systems): Practitioner analysis of how design systems must be structured — semantic tokens, explicit contracts, decision rationale — to produce reliable output from language models.
 - [Giorris — "AI-Ready Design Systems"](https://www.giorris.dev/thoughts/ai-ready-design-systems/): Argues that AI-ready design systems require three layers: structured data (tokens), prose context (rationale), and usage examples. Source for the three-layer model described in § 5.1.
 - [UX Design — "Dear LLM, here's how my design system works"](https://uxdesign.cc/dear-llm-heres-how-my-design-system-works-b59fb9a342b7): Practitioner essay on writing documentation that communicates design intent to LLMs, not just token values. Source for the "why, not just what" principle in § 5.1.
