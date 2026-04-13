@@ -91,6 +91,7 @@ This section lists every AI tool known to have contributed to this project, what
 | GitHub Copilot (Claude Sonnet 4.6) | Used to fix theme toggle button visibility by improving border contrast in `assets/css/site.css` (changed border from `var(--line)` to `var(--muted)` to meet WCAG 3:1 non-text contrast requirement) | Build-time / authoring only — not present at runtime or in the browser |
 | GitHub Copilot (Claude Sonnet 4.6) | Used to create `examples/navigation-menus/README.md` synthesizing accessible, responsive navigation menu best practices from W3C WAI, NNGroup, and practitioner sources | Build-time / authoring only — not present at runtime or in the browser |
 | GitHub Copilot (Claude Sonnet 4.6) | Used to add § 5.1 "Making standards LLM-ready" to `STYLES.md`, expand § 7 References with attributed LLM+design system sources, and create `llms.txt` at the repo root | Build-time / authoring only — not present at runtime or in the browser |
+| GitHub Copilot (Claude Sonnet 4.6) | Used to add frontend coding conventions (code formatting, naming cases, CSS class prefixes, property order) to `examples/tech-minimal/STYLES.md`, `examples/navigation-menus/README.md`, and `examples/formal-gov/STYLES.md` | Build-time / authoring only — not present at runtime or in the browser |
 
 **Runtime AI:** No AI model runs at runtime. This project is a static documentation site served by GitHub Pages. No server-side or client-side AI inference occurs when the site is loaded.
 

@@ -73,6 +73,49 @@ title: Tech-minimal example — STYLES.md
 | `--font-stack` | `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif` | — | `rem` only |
 | `--mono` | `ui-monospace, "Cascadia Code", "Fira Code", monospace` | — | Code blocks |
 
+### 3.1 Code formatting and naming
+
+**Formatting defaults**
+
+| Setting | Value |
+| :--- | :--- |
+| Indentation | 2 spaces |
+| Trailing whitespace | Trim on save |
+| Final newline | Required |
+
+**Quote style by file type**
+
+| File type | Quote style |
+| :--- | :--- |
+| `.html` | `"double"` |
+| `.css` | `'single'` |
+| `.js` | `'single'` |
+| `.json` | `"double"` |
+| `.yml` | None in general; `'single'` when forcing a string |
+
+**Naming cases**
+
+| What you're naming | Case |
+| :--- | :--- |
+| HTML attributes and values | `dash-case` |
+| CSS custom property | `--dash-case` |
+| CSS class | `dash-case` with category prefix (see below) |
+| JavaScript variable / function | `camelCase` |
+| JavaScript class | `PascalCase` |
+| File names | `dash-case.extension` |
+
+**CSS class prefixes**
+
+| Category | Prefix | Rule |
+| :--- | :--- | :--- |
+| Component | `c-` | Encapsulated UI component |
+| Utility | `u-` | Single-purpose helper (alignment, spacing, visibility) |
+| JavaScript hook | `js-` | Selector for JavaScript behavior only — never styled |
+
+**CSS property order**
+
+Group properties within each rule in this order: display → position → size → space → typography → border → background → transitions and animation. This makes rules easier to scan and diff without requiring memorization of the full property list.
+
 ---
 
 ## 4. Accessibility constraints
@@ -103,3 +146,4 @@ title: Tech-minimal example — STYLES.md
 - [SUSTAINABILITY.md](../../SUSTAINABILITY.md)
 - [Plain Language Guidelines — Digital.gov](https://www.plainlanguage.gov/guidelines/)
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
+- [frontend-conventions skill — mikemai2awesome/agent-skills](https://github.com/mikemai2awesome/agent-skills/blob/main/skills/frontend-conventions/SKILL.md)
