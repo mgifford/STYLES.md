@@ -286,6 +286,18 @@ nav button {
 
 Respect `prefers-reduced-motion` for any slide, fade, or expand animation on navigation elements.
 
+### CSS class naming
+
+The examples in this guide use descriptive `dash-case` class names (`.skip-link`, `.sr-only`, `.nav-toggle`) without a category prefix, because this is a standalone pattern library. When adopting these patterns in a project that has its own class taxonomy, align the names with that project's `STYLES.md`. Common conventions:
+
+| Category | Example | Use for |
+| :--- | :--- | :--- |
+| Component | `c-nav`, `c-nav__toggle` | The navigation component and its sub-elements |
+| Utility | `u-sr-only` | Single-purpose helpers such as screen-reader-only text |
+| JavaScript hook | `js-nav-toggle` | Selectors referenced in JavaScript — never styled directly |
+
+`js-` classes exist solely as scripting hooks. They should never carry CSS style rules.
+
 ---
 
 ## 7. Common pitfalls

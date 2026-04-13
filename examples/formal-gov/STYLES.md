@@ -69,6 +69,14 @@ title: Formal government example — STYLES.md
 | `--button-text` | `#ffffff` | `#000000` | — |
 | `--font-stack` | `Source Sans Pro, system-ui, sans-serif` | — | City approved. `rem` only. |
 
+### 3.1 Code and file conventions
+
+- **File names:** `dash-case.extension` — for example, `open-data-portal.html`, `base-styles.css`.
+- **CSS custom properties:** `--dash-case` matching the semantic token names above.
+- **CSS classes:** `dash-case` throughout. Prefix by category when a design system is in use: `c-` for components, `u-` for utilities, `js-` for JavaScript-only hooks (never styled).
+- **JavaScript:** `camelCase` for variables and functions; `PascalCase` for constructors and classes.
+- **Indentation:** 2 spaces in all source files. Trim trailing whitespace. End every file with a newline.
+
 ---
 
 ## 4. Accessibility constraints
