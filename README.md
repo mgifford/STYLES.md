@@ -92,6 +92,7 @@ This section lists every AI tool known to have contributed to this project, what
 | GitHub Copilot (Claude Sonnet 4.6) | Used to create `examples/navigation-menus/README.md` synthesizing accessible, responsive navigation menu best practices from W3C WAI, NNGroup, and practitioner sources | Build-time / authoring only — not present at runtime or in the browser |
 | GitHub Copilot (Claude Sonnet 4.6) | Used to add § 5.1 "Making standards LLM-ready" to `STYLES.md`, expand § 7 References with attributed LLM+design system sources, and create `llms.txt` at the repo root | Build-time / authoring only — not present at runtime or in the browser |
 | GitHub Copilot (Claude Sonnet 4.6) | Used to add frontend coding conventions (code formatting, naming cases, CSS class prefixes, property order) to `examples/tech-minimal/STYLES.md`, `examples/navigation-menus/README.md`, and `examples/formal-gov/STYLES.md` | Build-time / authoring only — not present at runtime or in the browser |
+| GitHub Copilot (Claude Sonnet 4.6) | Used to research and document the comparison between STYLES.md and DESIGN.md (Google Labs), and add the "Comparison with DESIGN.md" section and recommendation to `README.md` | Build-time / authoring only — not present at runtime or in the browser |
 
 **Runtime AI:** No AI model runs at runtime. This project is a static documentation site served by GitHub Pages. No server-side or client-side AI inference occurs when the site is loaded.
 
@@ -99,8 +100,42 @@ This section lists every AI tool known to have contributed to this project, what
 
 **How to keep this current:** When an AI tool contributes a change, the contributor (human or AI agent) must update this table. See `AGENTS.md` for the AI disclosure requirement that governs this section.
 
+## Comparison with DESIGN.md
+
+[DESIGN.md](https://github.com/google-labs-code/design.md) is a Google Labs format for encoding visual identity as a machine-readable file so that AI coding agents can generate consistent UI. It combines YAML front matter (structured design tokens) with Markdown prose sections (brand rationale). It ships with an npm CLI for linting, diffing, and exporting tokens.
+
+STYLES.md and DESIGN.md address overlapping problems from different angles. The table below documents the key differences.
+
+| Dimension | STYLES.md | DESIGN.md |
+| :--- | :--- | :--- |
+| **Primary purpose** | Broad style governance: voice, content, design, accessibility, sustainability, and AI agent constraints | Narrow visual identity: design tokens and rationale for AI-generated UI |
+| **Token format** | CSS custom properties documented in Markdown tables | Typed YAML front matter (`colors`, `typography`, `rounded`, `spacing`, `components`) |
+| **Token interoperability** | Standalone CSS; no export tooling | Exports to Tailwind theme config and W3C DTCG `tokens.json` |
+| **CLI tooling** | None | `npx @google/design.md lint`, `diff`, `export`, `spec` |
+| **Voice and content rules** | Yes — plain language, grammar, spelling, citation, document types | None |
+| **Accessibility** | Full pillar via [ACCESSIBILITY.md](./ACCESSIBILITY.md); integrated constraints throughout | WCAG contrast-ratio linting in CLI only |
+| **Sustainability** | Full pillar via [SUSTAINABILITY.md](./SUSTAINABILITY.md) | None |
+| **AI agent behavioral constraints** | Yes — explicit guardrails in [AGENTS.md](./AGENTS.md) and § 5 of STYLES.md | No — the file is consumed as design context, not as agent behavioral rules |
+| **Component tokens** | Prose-based component contracts | Typed `components` map with token references (`{colors.primary}`) |
+| **Governance model** | Three-pillar ecosystem (accessibility, sustainability, style) | Single file; spec is currently in alpha |
+| **Maturity** | Production use across repos | Alpha; spec and CLI under active development |
+
+### Where they overlap
+
+Both formats share a core insight: style guidance that lives as a readable, version-controlled file is more useful than a PDF or a Figma board that agents cannot access. Both encourage pairing tokens with prose rationale so that the *why* is preserved alongside the *what*.
+
+### Recommendation
+
+Use both formats together. They are complementary, not competing.
+
+- **Use DESIGN.md** for the visual identity layer — precise color, typography, spacing, and component tokens that AI coding tools (IDE agents, Stitch, etc.) can consume directly. Its typed YAML tokens, linter, and export commands make it the right choice for design-system-to-code workflows.
+- **Use STYLES.md** for the governance layer — voice, tone, plain language, accessibility, sustainability, and agent behavioral constraints. These concerns apply across documentation and code, not just to visual output.
+
+A project using both would place `DESIGN.md` at the repo root for visual tokens and `STYLES.md` alongside it for writing and governance standards. Reference both in `AGENTS.md` and in LLM system prompts so agents know which file governs which decisions. For projects that adopt DESIGN.md, the `components` section in DESIGN.md can replace or complement the component contracts described in § 5.1 of STYLES.md, as both serve the same goal of giving agents explicit, machine-parseable component rules.
+
 ## Related projects
 
 - [ACCESSIBILITY.md](https://github.com/mgifford/ACCESSIBILITY.md)
 - [SUSTAINABILITY.md](https://github.com/mgifford/sustainability.md)
 - [AGENTS.md](https://agents.md)
+- [DESIGN.md](https://github.com/google-labs-code/design.md) — Google Labs format for visual identity tokens
